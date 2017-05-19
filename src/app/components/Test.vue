@@ -6,11 +6,7 @@
 
 <script>
 export default {
+  name: 'Test',
   mixins: [vcms.mixin],
-  data() {
-    return {
-      someData: 32
-    }
-  }
 }
 </script>

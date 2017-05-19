@@ -8,14 +8,13 @@
 
 <script>
 export default {
+  name: 'BasicLayout',
   mixins: [vcms.mixin],
   computed: {
     children() {
       return []
     }
   },
-  components: {
-    Child: require('../../vcms/components/Child.vue')
-  }
+  components: window.components
 }
 </script>

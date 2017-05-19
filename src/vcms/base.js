@@ -2,7 +2,6 @@ window.vcms.mixin = {
   props: ['namespace'],
   data() {
     return {
-      value: 'hest',
       content: null
     }
   },
@@ -12,7 +11,7 @@ window.vcms.mixin = {
   },
 
   beforeCreate() {
-    var name = this.$options._componentTag
+    var name = this.$options.name
     
     var config
     try {
@@ -23,14 +22,12 @@ window.vcms.mixin = {
         config = require('../app/layouts/' + name + '.yml')
       }
       catch(e) {
-        console.log(this.$options)
         console.warn(`[${name}] has no def file`)
         return
       }
     }
     
     addProperties(this, config.properties)
-    console.log(config)
   },
 }
 

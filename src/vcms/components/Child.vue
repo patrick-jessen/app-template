@@ -18,7 +18,6 @@ export default {
     var type = store.$type
     context.data.attrs.namespace = namespace
 
-
     return createElement(getComponent(type), context.data)
   }
 }

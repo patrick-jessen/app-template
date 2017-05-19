@@ -6,7 +6,10 @@ export default {
     },
     '$children': {
       'childtest': {
-        '$type': 'Test'
+        '$type': 'Test',
+        '$props': {
+          'value': 'someval'
+        }
       }
     }
   },
