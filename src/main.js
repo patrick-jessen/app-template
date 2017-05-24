@@ -17,19 +17,16 @@ ctx.keys().forEach((f) => {
   components[name] = () => import('./app/components/' + name + '.vue')
 })
 
-ctx = require.context('./app/layouts', true, /\.vue$/)
-ctx.keys().forEach((f) => {
-  var name = f.match(/\w+(?=\.)/)[0]
-  components[name] = () => import('./app/layouts/' + name + '.vue')
-})
+components.App = () => import('./App.vue')
 
 Vue.mixin({
   components
 })
 
-console.log(components)
-
 window.components = components
 
-window.vue = new Vue(require('./App.vue'))
+window.vue = new Vue({
+  render: h => h('App'),
+  components
+})
 window.vue.$mount('#app')

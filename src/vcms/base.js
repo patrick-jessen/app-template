@@ -13,13 +13,10 @@ window.vcms.mixin = {
   beforeCreate() {
     var name = this.$options.name
     
-    var config
-    try {
-     config = require('../app/components/' + name + '.yml')
-    }
-    catch(e) {
+    var config = this.$options.vcms
+    if(!config) {
       try {
-        config = require('../app/layouts/' + name + '.yml')
+      config = require('../app/components/' + name + '.yml')
       }
       catch(e) {
         console.warn(`[${name}] has no def file`)
@@ -35,7 +32,12 @@ window.vcms.mixin = {
 function StoreAccessor(property) {
   return {
     get() {
-      return this.content.$props[property]
+      try {
+        return this.content.$props[property]
+      }
+      catch (e) {
+        console.error('Missing property:', this.namespace.namespace + '.' + property)
+      }
     },
     set(v) {
       var err = new Error()

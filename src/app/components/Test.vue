@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class='testwrapper'>
   <input :value='value'>
 </div>
 </template>
@@ -10,3 +10,15 @@ export default {
   mixins: [vcms.mixin],
 }
 </script>
+
+<style>
+.testwrapper {
+  background-color: red;
+  overflow: hidden;
+  border: 1px solid green;
+}
+input {
+  width: 100%;
+
+}
+</style>

@@ -1,5 +1,6 @@
 function getContentStore() {
-  return window.vue.$root.content
+  //return window.vue.$root.content
+  return window.vue.$root.$children[0].content
 }
 
 export class Namespace {
@@ -11,19 +12,34 @@ export class Namespace {
   get isComponent() {
     return this.type === 'component'
   }
+  get isChildren() {
+    return this.type === 'children'
+  }
   get isProperty() {
     return this.type === 'property'
   }
 
   child(name) {
-    if(!this.isComponent) {
-      throw 'Namespace does not point to a component'
+    switch(this.type) {
+      case 'component':
+        return new Namespace(this.namespace + '.$children.' + name, 'component')
+      case 'children':
+        return new Namespace(this.namespace + '.' + name, 'component')
+      default:
+        throw 'Namespace does not point to a component'
     }
-
-    return new Namespace(this.namespace + '.$children.' + name, 'component')
   }
 
-  get get() {
+  get children() {
+    switch(this.type) {
+      case 'component':
+        return new Namespace(this.namespace + '.$children', 'children')
+      default:
+        throw 'Namespace does not point to a component'
+    }
+  }
+
+  get get() {   
     var store = getContentStore()
     var path = this.namespace.split('.')
     
