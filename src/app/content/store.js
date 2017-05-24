@@ -2,43 +2,53 @@ export default {
   'app': {
     '$children': [
       {
-        '$type': 'Test',
+        '$type': 'NavMenu',
         '$props': {
-          'value': 'defaulttext'
+          'logo': {
+            'link': '/',
+            'image': 'https://d1vhcvzji58n1j.cloudfront.net/assets/logo-1c27efee7b.png'
+          },
+          'menus': [
+            {text:'laptops',link:'/laptops'},
+            {text:'desktops',link:'/desktops'},
+            {text:'servers',link:'/servers'},
+            {text:'swag',link:'/swag'}
+          ],
+          'actions': [
+            {icon:'fa-comments',link:'/contact'},
+            {icon:'fa-life-ring',link:'/support'},
+            {icon:'fa-user',link:'/my-account'}
+          ]
         }
       },
       {
-        '$type': 'Columns',
+        '$type': 'CarouselHero',
         '$props': {
-          'gutter': 0,
-          'columns': [5, 1, 2],
-          'breakpoint': 1000
-        },
-        '$children': [
-          [{
-            '$type':'Test',
-            '$props': {
-              'value':'c1'
+          'duration': 5000,
+          'transition': 'slide',
+          'items': [
+            {
+              "image": "https://d1vhcvzji58n1j.cloudfront.net/assets/products/gaze12/hero_wide_1280-e5a14a6c72.jpg",
+              "link": "#0"
+            },
+            {
+              "image": "https://d1vhcvzji58n1j.cloudfront.net/assets/products/oryp3/hero_wide_1280-02cc3e6cba.jpg",
+              "link": "#1"
+            },
+            {
+              "image": "https://d1vhcvzji58n1j.cloudfront.net/assets/products/kudu4/hero_wide_1280-d3924b7405.jpg",
+              "link": "#2"
+            },
+            {
+              "image": "https://d1vhcvzji58n1j.cloudfront.net/assets/products/galp2/hero_wide_1280-f762ff343f.jpg",
+              "link": "#3"
+            },
+            {
+              "image": "https://d1vhcvzji58n1j.cloudfront.net/assets/products/lemu7/hero_wide_1280-cbc61456c5.jpg",
+              "link": "#4"
             }
-          }],
-          [{
-            '$type':'Test',
-            '$props': {
-              'value':'c2'
-            }
-          },{
-            '$type':'Test',
-            '$props': {
-              'value':'c2.2'
-            }
-          }],
-          [{
-            '$type':'Test',
-            '$props': {
-              'value':'c3'
-            }
-          }]
-        ]
+          ]
+        }
       }
     ]
   },

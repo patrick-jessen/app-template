@@ -1,0 +1,4 @@
+properties:
+  - name: duration
+  - name: items
+  - name: transition

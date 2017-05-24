@@ -17,6 +17,8 @@ export default {
       return createElement('None')
     }
 
+    var cls = context.data.staticClass
+
     var children = []
     for(var i = 0; i < store.length; i++) {
       var data = context.data
@@ -24,13 +26,13 @@ export default {
         data.attrs = {}
       data.attrs.namespace = new Namespace(childrenNs.namespace + '.' + i, 'component')
       data.key = store
+      data.staticClass = ''
       var child = store[i]
       var el = createElement(child.$type, data)
       children.push(el)
     }
 
-    
-    return createElement('div', children)
+    return createElement('div', {attrs:{class:cls}}, children)
   }
 }
 </script>

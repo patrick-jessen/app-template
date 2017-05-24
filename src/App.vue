@@ -1,6 +1,6 @@
 <template>
-<div>
-  <Children />
+<div class='vcms'>
+  <Children class='app' />
   <Inspector v-if='editMode' />
 </div>
 </template>
@@ -25,3 +25,12 @@ export default {
   components: window.components
 }
 </script>
+
+<style lang='scss'>
+body {
+  margin: 0;
+}
+* {
+  font-family: 'Roboto', sans-serif;
+}
+</style>

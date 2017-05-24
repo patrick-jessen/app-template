@@ -1,7 +1,10 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+
 require('./vcms/vcms')
 
 var ctx
-
 var components = {}
 
 //bundle-loader?name=[name]!
@@ -25,8 +28,14 @@ Vue.mixin({
 
 window.components = components
 
+var router = new VueRouter({
+  mode: 'history',
+})
+
+
 window.vue = new Vue({
   render: h => h('App'),
-  components
+  components,
+  router
 })
 window.vue.$mount('#app')
