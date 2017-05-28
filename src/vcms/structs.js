@@ -43,6 +43,13 @@ export class Namespace {
     }
   }
 
+  get columns() {
+    return new Namespace(this.namespace + '.$columns', 'children')
+  }
+  column(index) {
+    return new Namespace(this.namespace + '.' + '$columns.' + index)
+  }
+
   get get() {   
     var store = getContentStore()
     var path = this.namespace.split('.')

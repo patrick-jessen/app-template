@@ -36,7 +36,7 @@ function StoreAccessor(property) {
         return this.content.$props[property]
       }
       catch (e) {
-        console.error('Missing property:', this.namespace.namespace + '.' + property)
+        console.error('Missing property:', this.namespace.namespace + '.$props.' + property)
       }
     },
     set(v) {

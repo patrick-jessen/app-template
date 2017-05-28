@@ -1,7 +1,7 @@
 <template>
 <div ref='base' :style='baseStyle'>
   <div class='column' v-for='(c,i) in children' :style='columnStyles[i]'>
-    <Children :name='i'/>
+    <Children :namespace='createNamespace(i)'/>
   </div>
 </div>
 </template>
@@ -28,10 +28,15 @@ export default {
   },
   computed: {
     children() {
-      var ns = this.namespace.children
+      var ns = this.namespace.columns
       return ns.get
     },
     columnStyles() {
+      if(!this.columns) {
+        console.error('Missing property:', this.namespace.namespace + '.$props.columns')
+        return []
+      }
+
       var sum = this.columns.reduce((acc, c) => {
         return acc + c
       }, 0)
@@ -84,10 +89,11 @@ export default {
       }
     }
   },
-  // components: {
-  //   Child: () => import('./Child.vue'),
-  //   Children: () => import('./Children.vue')
-  // }
+  methods: {
+    createNamespace(idx) {
+      return this.namespace.column(idx)
+    }
+  },
   components: window.components
 }
 
