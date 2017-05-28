@@ -2,19 +2,21 @@
 import {Namespace} from '../structs'
 
 export default {
-  props: ['name'],
+  props: ['name', 'namespace'],
   functional: true,
   render(createElement, context) {
-    var childrenNs
-    if(typeof context.props.name === 'undefined')
-      childrenNs = context.parent.namespace.children
-    else
-      childrenNs = context.parent.namespace.child(context.props.name)
+    var childrenNs = context.props.namespace
+    if(!childrenNs) {
+      if(typeof context.props.name === 'undefined')
+        childrenNs = context.parent.namespace.children
+      else
+        childrenNs = context.parent.namespace.child(context.props.name)
+    }
 
     var store = childrenNs.get
     if(!store) {
-      console.error('Missing $children:', context.parent.namespace.namespace)
-      return createElement('None')
+      console.error('Missing $children:', childrenNs.namespace)
+      return createElement('None', {attrs:{namespace:childrenNs}})
     }
 
     var cls = context.data.staticClass

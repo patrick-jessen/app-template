@@ -74,6 +74,7 @@ export default {
   position: relative;
   overflow: hidden;
   max-height: 600px;
+  min-width: 600px;
 
   img {
     width: 100%;

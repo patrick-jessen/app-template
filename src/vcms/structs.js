@@ -30,6 +30,10 @@ export class Namespace {
     }
   }
 
+  page(route) {
+    return new Namespace(this.namespace + '.' + '$routes.' + route)
+  }
+
   get children() {
     switch(this.type) {
       case 'component':
