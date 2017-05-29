@@ -1,3 +1,5 @@
+window.vcms.defs = {}
+
 window.vcms.mixin = {
   props: ['namespace'],
   data() {
@@ -23,7 +25,10 @@ window.vcms.mixin = {
         return
       }
     }
-    
+
+    console.log('nanaaa', name)
+
+    window.vcms.defs[name] = config    
     addProperties(this, config.properties)
   },
 }

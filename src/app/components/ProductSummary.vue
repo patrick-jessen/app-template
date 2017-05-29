@@ -81,6 +81,7 @@ h3 {
   height: 7px;
   background-color: rgb(250, 164, 26);
   position: absolute;
+  left: 0;
 }
 h5 {
   font-size: 0.8rem;

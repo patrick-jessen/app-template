@@ -1,2 +1,5 @@
+layout:
+  minWidth: 300
+  maxWidth: 300
 properties:
   - name: laptop

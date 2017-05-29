@@ -12,7 +12,14 @@ export default {
 
     context.data.attrs.namespace = routeNs
 
-    return createElement('Children', context.data)
+    var pageStore = routeNs.get
+    if(!pageStore || !pageStore.$type) {
+      console.error('Missing prop:', routeNs.namespace + '.$type')
+      return createElement('None', context.data)
+    }
+    var type = pageStore.$type
+
+    return createElement(type, context.data)
   }
 }
 </script>

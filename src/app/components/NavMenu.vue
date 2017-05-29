@@ -70,7 +70,7 @@ img {
   }
 }
 .menu {
-  padding: 20px;
+  padding: 0 20px;
   font-size: 16px;
   color: #574e4a;
   text-decoration: none;

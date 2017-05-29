@@ -19,6 +19,15 @@ export class Namespace {
     return this.type === 'property'
   }
 
+  get typeDef() {
+    switch(this.type) {
+      case 'component':
+        return window.vcms.defs[this.get.$type]
+      default:
+        throw 'Namespace does not point to a component'
+    }
+  }
+
   child(name) {
     switch(this.type) {
       case 'component':
@@ -31,7 +40,7 @@ export class Namespace {
   }
 
   page(route) {
-    return new Namespace(this.namespace + '.' + '$routes.' + route)
+    return new Namespace(this.namespace + '.' + '$routes.' + route, 'component')
   }
 
   get children() {
