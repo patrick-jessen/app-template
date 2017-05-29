@@ -84,13 +84,31 @@ export default {
                 {
                   '$type': 'ProductSummary',
                   '$props': {
-                    'laptop': shared.laptops.gazelle.summary
+                    'laptop': shared.laptops.kudu.summary
                   }
                 },
                 {
                   '$type': 'ProductSummary',
                   '$props': {
-                    'laptop': shared.laptops.gazelle.summary
+                    'laptop': shared.laptops.galago.summary
+                  }
+                },
+                {
+                  '$type': 'ProductSummary',
+                  '$props': {
+                    'laptop': shared.laptops.oryx.summary
+                  }
+                },
+                {
+                  '$type': 'ProductSummary',
+                  '$props': {
+                    'laptop': shared.laptops.serval.summary
+                  }
+                },
+                {
+                  '$type': 'ProductSummary',
+                  '$props': {
+                    'laptop': shared.laptops.bonobo.summary
                   }
                 }
               ]

@@ -43,8 +43,8 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 .appClass {
-  //max-width: 1000px;
-  //margin: auto;
+  max-width: 1000px;
+  margin: auto;
   //padding: 0 20px;
 }
 </style>

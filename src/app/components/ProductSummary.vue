@@ -36,6 +36,7 @@ export default {
   display: inline-block;
   max-width: 350px;
   text-decoration: none;
+  text-align: left;
 }
 h3 {
   font-family: serif;
