@@ -42,6 +42,15 @@ export class Namespace {
         throw 'Namespace does not point to a component'
     }
   }
+  
+  childrenSet(name) {
+    switch(this.type) {
+      case 'children':
+        return new Namespace(this.namespace + '.' + name)
+      default:
+        throw 'Namespace does not point to $children'
+    }
+  }
 
   get columns() {
     return new Namespace(this.namespace + '.$columns', 'children')

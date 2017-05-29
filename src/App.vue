@@ -1,6 +1,6 @@
 <template>
 <div class='vcms'>
-  <Children class='app' />
+  <Container :options='appLayout' class='appClass'/>
   <Inspector v-if='editMode' />
 </div>
 </template>
@@ -22,6 +22,15 @@ export default {
     this.$forceUpdate()
     window.store = this.content
   },
+  computed: {
+    appLayout() {
+      return {
+        //layout: 'horizontal',
+        //center: true
+        layout: 'vertical'
+      }
+    }
+  },
   components: window.components
 }
 </script>
@@ -32,5 +41,10 @@ body {
 }
 * {
   font-family: 'Roboto', sans-serif;
+}
+.appClass {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
 }
 </style>

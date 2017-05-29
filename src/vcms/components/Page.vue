@@ -7,8 +7,12 @@ export default {
     var route = context.parent.$route.path
     var routeNs = ns.page(route)
 
-    console.log('namespace', routeNs)
-    return createElement('Children', {attrs:{namespace:routeNs}})
+    if(!context.data.attrs)
+      context.data.attrs = {}
+
+    context.data.attrs.namespace = routeNs
+
+    return createElement('Children', context.data)
   }
 }
 </script>

@@ -1,3 +1,5 @@
+layout:
+  - min-width: 400
 properties:
   - name: logo
   - name: menus

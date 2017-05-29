@@ -4,11 +4,14 @@ function getComponent(name) {
 }
 
 export default {
-  props: ['name'],
+  props: ['name', 'namespace'],
   functional: true,
 
   render(createElement, context) {
-    var namespace = context.parent.namespace.child(context.props.name)
+    var namespace = context.props.namespace
+    if(!namespace)
+      context.parent.namespace.child(context.props.name)
+      
     var store = namespace.get
     if(!store || !store.$type) {
       console.warn('Child does not exist', namespace.namespace)
