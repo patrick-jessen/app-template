@@ -25,9 +25,7 @@ export default {
   computed: {
     appLayout() {
       return {
-        //layout: 'horizontal',
-        //center: true
-        layout: 'vertical'
+        layout: 'vertical',
       }
     }
   },
@@ -43,7 +41,7 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 .appClass {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
   //padding: 0 20px;
 }

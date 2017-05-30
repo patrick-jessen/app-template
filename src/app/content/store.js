@@ -29,8 +29,7 @@ export default {
           '/laptops': {
             '$type': 'Container',
             '$props': {
-              'layout': 'vertical',
-              'center': true
+              'layout': 'vertical'
             },
             '$children':[
             {
@@ -66,7 +65,9 @@ export default {
               '$type': 'Container',
               '$props': {
                 'layout': 'horizontal',
-                'center': true
+                style: {
+                  padding: '20px 0'
+                }
               },
               '$children': [
                 {

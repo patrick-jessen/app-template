@@ -1,5 +1,4 @@
 <template>
-<div>
 <router-link class='wrapper' :to='laptop.link'>
   <h3>{{laptop.name}} <span class='display-size'>{{laptop.displaySize}}</span></h3>
   <h4 class='price'>{{laptop.price}}<span class='note'>{{laptop.note}}</span></h4>
@@ -14,7 +13,6 @@
   </div>
 
 </router-link>
-</div>
 </template>
 
 <script>
@@ -33,8 +31,8 @@ export default {
 .wrapper {
   padding: 5px;
   margin: 15px;
-  display: inline-block;
-  max-width: 350px;
+  min-width: 250px;
+  max-width: 250px;
   text-decoration: none;
   text-align: left;
 }

@@ -1,5 +1,2 @@
-layout:
-  minWidth: 250
-  maxWidth: 250
 properties:
   - name: laptop

@@ -19,9 +19,31 @@ export default {
     }
 
     var type = store.$type
-    context.data.attrs.namespace = namespace
+    var data = Object.assign({}, context.data)
+    data.attrs.namespace = namespace
+    if(!data.staticClass)
+      data.staticClass = ''
+    data.staticClass += ' child__hover'
+    
+    if(!data.nativeOn)
+      data.nativeOn = {}
+    data.nativeOn.mouseenter = (e) => {
+      e.target.className += ' child--hovered'
+    }
+    data.nativeOn.mouseleave = (e) => {
+      e.target.className = e.target.className.replace(' child--hovered', '')
+    }
 
-    return createElement(getComponent(type), context.data)
+    var el = createElement(getComponent(type), data)
+    return el
   }
 }
 </script>
+
+<style lang='scss'>
+.child__hover:hover {
+  outline: 1px dashed gray;
+  z-index: 999;
+  position: relative;
+}
+</style>
